@@ -1,0 +1,24 @@
+There are several ways to solve this issue:
+
+1. **Fixed Parent Size:** If possible, set a fixed width or height on the parent container.  This ensures that `calc()` has a definite value to work with.
+
+2. **Alternative Layout:** Consider using a different layout model that doesn't rely on percentages within flexbox.  Grid or absolute positioning could be more suitable depending on the overall design.
+
+3. **JavaScript Solution:** For dynamic scenarios, use JavaScript to measure the parent container's size and then apply the calculated width to the element.
+
+4. **Avoid calc() within flex:** Use absolute positioning or other layout methods that don't rely on percentages or `calc()` in conjunction with `flex`.
+
+**Example (bugSolution.css):**
+
+```css
+.parent {
+  width: 500px; /* Fixed width for demonstration */
+  display: flex;
+}
+
+.child {
+  width: calc(100% - 10px);
+  background-color: lightblue;
+  /* Now the calculation will be accurate because of the fixed width of the parent */
+}
+```
